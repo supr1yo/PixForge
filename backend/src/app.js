@@ -1,13 +1,23 @@
-import express from 'express';
-const PORT = process.env.PORT;
+import express from 'express'
+import cors from 'cors'
+import upload from './routes/upload.route.js'
+import file from './routes/file.route.js'
 
-const app = express();
+const PORT = process.env.PORT || 3000
 
-// Home
+const app = express()
+
+app.use(express.json())
+
+app.use(cors({ origin: '*' }))
+
+app.use('/image', upload);
+app.use('/file', file);
+
 app.get('/', (req, res) => {
-  res.json({
-    "message": "hello world!!"
-  })
-});
+  res.json({ message: 'hello world!!' })
+})
 
-app.listen(PORT, () => console.log(`Running on http://localhost:${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Running on http://localhost:${PORT}`)
+})
