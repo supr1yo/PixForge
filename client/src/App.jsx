@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useRef, useState } from 'react'
 
 export default function App() {
@@ -36,3 +37,21 @@ export default function App() {
     </>
   )
 }
+=======
+import { useState } from 'react'
+import './App.css'
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <>
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+    </>
+  )
+}
+
+export default App
+>>>>>>> 11acc4f0ed5e2f43cd956f5f2f37859682cce9dc
